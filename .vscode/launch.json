@@ -1,0 +1,83 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Отладка текущего файла",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Python: С аргументами",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": [
+                "--arg1",
+                "значение1",
+                "--arg2",
+                "значение2"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Модуль",
+            "type": "python",
+            "request": "launch",
+            "module": "module_name",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "runserver"
+            ],
+            "console": "integratedTerminal",
+            "django": true
+        },
+        {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "env": {
+                "FLASK_APP": "app.py",
+                "FLASK_ENV": "development"
+            },
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Pytest",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "${file}",
+                "-v"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Отладчик в подпроцессе",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "subProcess": true
+        }
+    ]
+}
