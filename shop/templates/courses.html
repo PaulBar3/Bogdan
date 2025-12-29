@@ -1,0 +1,40 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/courses.css' %}">
+</head>
+<body>
+    <h1>Course Catalog</h1>
+    {% if courses %}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Students</th>
+                <th>Reviews</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.title|escape }}</td>
+                <td class="price">${{ course.price|floatformat:2 }}</td>
+                <td class="number">{{ course.students_qty|default:0|intcomma }}</td>
+                <td class="number">{{ course.reviews_qty|default:0|intcomma }}</td>
+                <td>{{ course.category.title|escape }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="no-courses">No courses available at the moment.</p>
+    {% endif %}
+</body>
+</html>
